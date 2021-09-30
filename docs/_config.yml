@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
 markdown:
   escape_markup: false

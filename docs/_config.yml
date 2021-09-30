@@ -18,19 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Odin
+title: Inspection Tool
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Odin is an open source diagnosis framework for generic machine learning classification
-  tasks and for computer vision object detection and instance segmentation tasks that
-  lets developers add meta-annotations to their data sets, compute performance metrics split
-  by meta-annotation values, and visualize diagnosis reports.
-baseurl: "/odin-docs" # the subpath of your site, e.g. /blog
+
+baseurl: "/demo-inspection-tool" # the subpath of your site, e.g. /blog
 url: "https://rnt-pmi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 aux_links:
-  "Odin on GitHub":
-    - "//github.com/rnt-pmi/odin"
+  "GitHub":
+    - "//github.com/rnt-pmi/demo-inspection-tool"
 
 aux_links_new_tab: True # Open link in a new tab
 

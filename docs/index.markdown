@@ -5,17 +5,17 @@ nav_order: 1
 permalink: /
 ---
 
-# Odin
+# Inpector Tool Demo
 {: .mb-6}
 
-**_Odin_**  is an open source diagnosis framework for generic machine learning **classification** tasks and for computer vision **object detection** and **instance segmentation** tasks that lets developers add meta-annotations to their data sets, compute performance metrics split by meta-annotation values, and visualize diagnosis reports.
+**_Inspector Tool_**  is an open source tool based on Jupyter Notebook that allows the inpection of a region on the map, different map layers can be provided.
+
 <br>
-**_Odin_**  is agnostic to the training platform and input formats and can be extended with application- and domain-specific meta-annotations and metrics with almost no coding.
-<br>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/lM4EMaZSbVk" frameborder="0" allowfullscreen></iframe>
 
 <hr>
 
-#### [Odin on GitHub](//github.com/rnt-pmi/odin){:target="_blank"}{:rel="noopener noreferrer"}
+#### [GitHub](//github.com/rnt-pmi/demo-inspection-tool){:target="_blank"}{:rel="noopener noreferrer"}
 {: .text-center}
 
 <hr>

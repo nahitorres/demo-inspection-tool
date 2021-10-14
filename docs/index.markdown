@@ -12,10 +12,10 @@ permalink: /
 
 <br>
 
-<p style="color:tomato;">A new demo video is in progress❗</p>
+
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/IQ9-JtKS8aQ" frameborder="0" allowfullscreen></iframe>
-
+<p style="color:tomato;"> First demo version </p>
 <hr>
 
 #### [GitHub](//github.com/rnt-pmi/demo-inspection-tool){:target="_blank"}{:rel="noopener noreferrer"}

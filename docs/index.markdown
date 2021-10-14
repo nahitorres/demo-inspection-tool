@@ -15,7 +15,7 @@ permalink: /
 
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/IQ9-JtKS8aQ" frameborder="0" allowfullscreen></iframe>
-<p style="color:tomato;"> First demo version </p>
+<p style="color:tomato;">Video will be released in English as well❗</p>
 <hr>
 
 #### [GitHub](//github.com/rnt-pmi/demo-inspection-tool){:target="_blank"}{:rel="noopener noreferrer"}

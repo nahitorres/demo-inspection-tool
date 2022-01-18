@@ -4,7 +4,7 @@ The Inspector Tool that can help the illegal landfill detection process through 
 
 **The main uses cases the tool addresses are include:**
 
-_Select the area to analyze. _The analyst selects the area to analyze by means of a GeoJson file containing the boundaries of the region.
+_Select the area to analyze._ The analyst selects the area to analyze by means of a GeoJson file containing the boundaries of the region.
     
 _Select the map source._ The analyst can choose among the different available sources: orthophotos from campaigns conducted in different times (now it works with campaigns done in the years 2015 or 2018), or images from Google Maps. Each layer provides different information. For example, the Google Maps layer provides   street names and references to different points of interest, which can be useful to better understand the context.  On the other hand, orthophotos from different years allow the analysts to see if a suspicious location extended or shrunk over the years. - The ortophoto providers url for such layers might need to be replaced by your own layers.
     

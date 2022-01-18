@@ -24,4 +24,5 @@ _Describe a suspicious site._ The analyst can add or modify descriptive informat
 
 _Export suspicious sites data._ The analyst can choose to export the data generated during the analysis in different formats: a Comma Separated Values file to visualize for example in Excel or a KML to visualize in GIS applications such as QGIS or GoogleEarth. 
     
-** Version 2 of the tool will externalize the information layers and the required information to annotate, so as to use it not only for the illegal landfill detection. As for now this is possible with minor modification of the code, in version 2 no code modification will be required for genealize to a use case of your choice.**
+**Version 2 of the tool will externalize the information layers and the required information to annotate, so as to use it not only for the illegal landfill detection. As for now this is possible with minor modification of the code, in version 2 no code modification will be required for genealize to a use case of your choice.
+**

@@ -26,3 +26,7 @@ _Export suspicious sites data._ The analyst can choose to export the data genera
     
 **Version 2 of the tool will externalize the information layers and the required information to annotate, so as to use it not only for the illegal landfill detection. As for now this is possible with minor modification of the code, in version 2 no code modification will be required for genealize to a use case of your choice.
 **
+
+
+## License
+Creative Commons CC BY licensing scheme (see LICENSE). 

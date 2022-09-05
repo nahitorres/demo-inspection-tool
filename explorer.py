@@ -17,7 +17,7 @@ from explorer_utils import *
 
 class MapExplorer:
 
-    def __init__(self, area_geojson_feature, cams_path, pred_path, output_path, zoom=14, impianti_in_area=None, show_pred_score=False):
+    def __init__(self, area_geojson_feature, cams_path, pred_path, output_path, zoom=14, impianti_in_area=None, show_pred_score=False, layers=dict()):
         self.comune = area_geojson_feature
         self.zoom = zoom
 
@@ -30,10 +30,11 @@ class MapExplorer:
         self.out = Output()
         self.show_pred_score = show_pred_score
         self.__prepare_map(self.comune, self.outside, self.points, self.zoom, self.cams_path, self.pred_path,
-                           self.output_path, self.impianti_in_area)
+                           self.output_path, self.impianti_in_area, layers)
         self.waste_type = [ "Non identifiable", "VEHICLES", "TYRES", "SLUDGE, MANURE", "Rubble/excavated earth and rocks", "WOOD",  "Scrap", "Domistic appliances", "Plastic", "Paper",  "Glass",
 "Corrugated sheets(asbestos-cement)", "Bulby waste", "Foundry waste","Stone /marble processing waste", "Asphalt milling", "Other"]
         self.storage_mode = ["Delimited heaps","Heaps not delimited","Filled pallets", "Filled roll-off containers", "Cages", "Big bags","Silos", "Plastic tanks","Drums, barrels", "Other"]
+
     def __set_outbounds(self):
         polygon = shape(self.comune["geometry"])
         lonmin, latmin, lonmax, latmax = polygon.bounds
@@ -57,7 +58,7 @@ class MapExplorer:
         m.clear_layers()
         return m
 
-    def __prepare_map(self, comune_feature, outside, points, zoom, cams_path, pred_path, output_path, impianti_in_area):
+    def __prepare_map(self, comune_feature, outside, points, zoom, cams_path, pred_path, output_path, impianti_in_area, layers):
         s = shape(comune_feature["geometry"])
         lon, lat = s.centroid.x, s.centroid.y
         self.m = self.__create_map(lat, lon, zoom)
@@ -66,14 +67,14 @@ class MapExplorer:
         print("Base map created")
 
         # layers
-
-        google_layer = get_google_layer()
-        self.m.add_layer(google_layer)
-        orthophoto_layer15 = get_ortophoto_layer15()
-        self.m.add_layer(orthophoto_layer15)
-        orthophoto_layer = get_ortophoto_layer()
-        self.m.add_layer(orthophoto_layer)
-        self.__add_toggle_map_shown(self.m, google_layer, orthophoto_layer, orthophoto_layer15)
+        if len(layers) == 0:
+            layers["Google"] = get_google_layer()
+            
+        for name in layers:
+            # check layer type
+            self.m.add_layer(layers[name])
+            
+        self.__add_toggle_map_shown(self.m, layers)
         print("Images layers providers added")
 
         self.m.add_layer(GeoJSON(data=comune_feature, style={'fill': 0, 'stroke-width': 4}))
@@ -170,25 +171,20 @@ class MapExplorer:
         m.add_control(toggle_control)
         return btn
 
-    def __add_toggle_map_shown(self, m, google_layer, orthophoto_layer, orthophoto15_layer):
+    def __add_toggle_map_shown(self, m, layers):
+
+        names = list(layers.keys())
         radio_map_choice = RadioButtons(
-            options=['Orthophoto18', 'Orthophoto15', 'Gmaps'],
-            value='Orthophoto18', 
+            options=names,
+            value=names[0], 
             layout=Layout(width='120px'))
 
         def change_shown_map(value):
-            if value['new'] == 'Gmaps':
-                google_layer.visible = True
-                orthophoto_layer.visible = False
-                orthophoto15_layer.visible = False
-            elif value['new'] == 'Orthophoto18':
-                google_layer.visible = False
-                orthophoto_layer.visible = True
-                orthophoto15_layer.visible = False
-            else:
-                google_layer.visible = False
-                orthophoto_layer.visible = False
-                orthophoto15_layer.visible = True
+            for name in enumerate(layers):
+                if value['new'] == name:
+                    layers[name].visible = True
+                else:
+                    layers[name].visible = False
 
         radio_map_choice.observe(change_shown_map, names='value')
 

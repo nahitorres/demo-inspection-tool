@@ -23,10 +23,34 @@ _Signal a suspicious site._ The analyst can indicate the presence of a suspiciou
 _Describe a suspicious site._ The analyst can add or modify descriptive information of a suspicious site. The descriptive fields are taken from the current characterization process used by the analysis:  severity detected, certainty index, environmental risk, waste types detected, waste storage mode and a free text input for any additional detail. 
 
 _Export suspicious sites data._ The analyst can choose to export the data generated during the analysis in different formats: a Comma Separated Values file to visualize for example in Excel or a KML to visualize in GIS applications such as QGIS or GoogleEarth. 
-    
-**Version 2 of the tool will externalize the information layers and the required information to annotate, so as to use it not only for the illegal landfill detection. As for now this is possible with minor modification of the code, in version 2 no code modification will be required for genealize to a use case of your choice.
-**
 
+
+#### How to use:
+It uses Jupyter Notebook, and the IpyLeaflet library that needs to be installed: https://ipyleaflet.readthedocs.io/en/latest/installation/index.html
+
+Also install the following libraries: simplekml, shapely, ipyleaflet, pandas, geojson, ipywidgets
+
+**Predictions**: Should be GeoJson Feature Collection, where each feature contains the coordinates of the predicted area, along with 
+```
+{"type": "Feature", 
+"properties": {"id": 344, 
+                "comune": "Gallarate N", 
+                "path": "image.png",  # path to the image used to generate the prediction if avaiblale
+                "heigth": 800,# size of the image used to generate the prediction if avaiblale 
+                "width": 800, # size of the image used to generate the prediction if avaiblale
+                 "score": 0.9626868963241577,
+                 "category_id": 1, 
+                 "category_name": "sito_generico"}, 
+                 "geometry": {"type": "Polygon", "coordinates": [[[lon, lat], [lon, lat], [lon, lat], [lon, lat], [lon, lat]]]}}
+```                
+**CAMs**: Should be a GeoJson Feature Collection, where each MultiPolygon contains the ID associated to the prediction from previous file.
+
+Examples of all needed files are provided in test_data folder.
 
 ## License
 Creative Commons CC BY licensing scheme (see LICENSE). 
+
+
+
+#### Notes
+**Version 2** of the tool will externalize the information layers and the required information to annotate, so as to use it not only for the illegal landfill detection. As for now this is possible with minor modification of the code, in version 2 no code modification will be required for genealize to a use case of your choice.

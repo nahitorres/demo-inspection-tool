@@ -15,24 +15,13 @@ class ColorConfidence(Enum):
     
 ############## ADD SATELLITE LAYERS TO MAP ############
 def get_ortophoto_layer():
-    token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoibmFoaW1lIn0.PpPTxmnS64wL2lbAaHiNk1ZSI0mIjtMts66-CMxSQw8'
+    token = 'TOKEN...'
     return TileLayer(
         url='http://otprovider.wdscoml.it/tiles/{z}/{x}/{y}.png?token=' + token,
         name='Orthophoto',
         visible=True,
         max_zoom=22
     )
-
-
-def get_ortophoto_layer15():
-    token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoibmFoaW1lIn0.PpPTxmnS64wL2lbAaHiNk1ZSI0mIjtMts66-CMxSQw8'
-    return  TileLayer(
-        url='http://otprovider.wdscoml.it/tiles15/{z}/{x}/{y}.png?token=' + token,
-        name='Orthophoto',
-        visible=True,
-        max_zoom=22
-    )
-
 
 def get_google_layer():
     return TileLayer(
